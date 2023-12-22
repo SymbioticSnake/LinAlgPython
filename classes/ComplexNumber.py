@@ -1,5 +1,5 @@
 """
-Contains a ComplexNumber class that parses complex numbers.
+Contains a ComplexNumber class that can be used to store complex numbers.
 """
 
 from math import *
