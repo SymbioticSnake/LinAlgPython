@@ -69,5 +69,4 @@ class ComplexNumber:
             return ComplexNumber(1, 0)
         elif 0 < power < 1:
             return self.__root(power)
-        else:
-            return self.__power(power)
+        return self.__power(power)
