@@ -70,3 +70,33 @@ class ComplexNumber:
         elif 0 < power < 1:
             return self.__root(power)
         return self.__power(power)
+
+
+class ComplexPolynomial:
+    def __init__(self, *args):
+        self.coefficients = tuple(arg for arg in args)
+        self.degree = len(self.coefficients)
+
+    def __add__(self, other):
+        length = min(self.degree, other.degree)
+        new_coefficients = [self.coefficients[i] + other.coefficients[i] for i in range(length)]
+
+        for i in range(length, max(self.degree, other.degree)):
+            if self.degree < other.degree:
+                new_coefficients.append(other.coefficients[i])
+            else:
+                new_coefficients.append(self.coefficients[i])
+
+        return ComplexPolynomial(a for a in new_coefficients)
+
+    def __sub__(self, other):
+        length = min(self.degree, other.degree)
+        new_coefficients = [self.coefficients[i] - other.coefficients[i] for i in range(length)]
+
+        for i in range(length, max(self.degree, other.degree)):
+            if self.degree < other.degree:
+                new_coefficients.append(other.coefficients[i])
+            else:
+                new_coefficients.append(self.coefficients[i])
+
+        return ComplexPolynomial(a for a in new_coefficients)

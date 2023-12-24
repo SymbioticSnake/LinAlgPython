@@ -1,8 +1,8 @@
 class Matrix:
     def __init__(self, rows=2, columns=2):
-        self.matrix = [[0 for _ in range(10)] for _ in range(10)]
         self.m = rows
         self.n = columns
+        self.matrix = [[0 for _ in range(self.n)] for _ in range(self.m)]
 
     def __add__(self, other):
         if other.m != self.m or other.n != self.n:
